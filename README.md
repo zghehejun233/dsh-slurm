@@ -225,7 +225,7 @@ One repository secret is required:
 3. Push the tag:
 
 ```sh
-git tag v0.5.10
+git tag v0.5.10   # skip if the tag already exists
 git push origin v0.5.10
 ```
 
