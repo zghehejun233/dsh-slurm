@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Slurm queue">
+  <rect width="64" height="64" rx="14" fill="#1f2937"/>
+  <rect x="12" y="14" width="40" height="8" rx="4" fill="#38bdf8"/>
+  <rect x="12" y="28" width="30" height="8" rx="4" fill="#60a5fa"/>
+  <rect x="12" y="42" width="20" height="8" rx="4" fill="#a5b4fc"/>
+  <circle cx="49" cy="46" r="6" fill="#fbbf24"/>
+  <path d="M47 43.5v5l4-2.5z" fill="#1f2937"/>
+</svg>

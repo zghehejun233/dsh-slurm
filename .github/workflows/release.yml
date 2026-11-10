@@ -1,0 +1,66 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+  id-token: write
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          registry-url: https://registry.npmjs.org
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Test
+        run: npm test
+
+      - name: Check tag matches package version
+        run: |
+          node -e '
+            const version = require("./package.json").version;
+            if (`v${version}` !== process.env.GITHUB_REF_NAME) {
+              console.error(`tag ${process.env.GITHUB_REF_NAME} != package version v${version}`);
+              process.exit(1);
+            }
+          '
+
+      - name: Pack
+        run: npm pack --pack-destination dist
+
+      - name: Require NPM_TOKEN
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          if [ -z "$NODE_AUTH_TOKEN" ]; then
+            echo "::error::Add a repository secret named NPM_TOKEN (npm automation token with publish rights for dsh-slurm)."
+            exit 1
+          fi
+
+      - name: Publish to npm
+        run: npm publish --provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Create GitHub release
+        run: |
+          gh release create "$GITHUB_REF_NAME" dist/*.tgz \
+            --title "dsh-slurm $GITHUB_REF_NAME" \
+            --generate-notes
+        env:
+          GH_TOKEN: ${{ github.token }}

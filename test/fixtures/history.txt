@@ -1,0 +1,4 @@
+JobID|JobName|State|ExitCode|ElapsedRaw|End|AllocTRES
+195|p1_scale|COMPLETED|0:0|358|2026-11-08T12:00:00|billing=1
+196|p1_trainB|COMPLETED|0:0|1007|2026-11-08T12:30:00|billing=8
+197|p1_evalB|RUNNING|0:0|17|Unknown|billing=8

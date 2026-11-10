@@ -1,0 +1,3 @@
+PARTITION|AVAIL|NODES|STATE|GRES
+gpu*|up|1|mix|gpu:rtx5090:2
+cpu|up|2|idle|(null)

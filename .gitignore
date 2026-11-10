@@ -1,0 +1,12 @@
+node_modules/
+dist/
+*.tgz
+.test-home/
+.npm-cache/
+.DS_Store
+npm-debug.log*
+test/e2e-output/
+
+# internal review notes
+docs/codex-review-*.md
+docs/codex-recheck-*.md

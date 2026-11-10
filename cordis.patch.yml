@@ -1,0 +1,6 @@
+# dsh-slurm bundle patch: one row adds the slurm_* tools, the completion
+# watcher, and (when dsh-better-sidebar is installed) the right-sidebar panel.
+# The cluster is chosen in the panel; config.host is only a fallback.
+- insert:
+    - id: dsh-slurm
+      name: dsh-slurm

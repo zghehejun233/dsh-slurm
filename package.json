@@ -1,0 +1,85 @@
+{
+  "name": "dsh-slurm",
+  "version": "0.5.10",
+  "description": "Slurm queue for DeepSeek Harness: submit jobs, watch progress in the right sidebar, and continue the chat when a job finishes.",
+  "license": "MIT",
+  "author": "ThuRAY <thuray.email@gmail.com>",
+  "type": "module",
+  "main": "main.js",
+  "exports": {
+    ".": "./main.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "main.js",
+    "client.js",
+    "src/*.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "check": "node --check main.js && node --check client.js && node --test test/*.test.js",
+    "pack:check": "npm pack --dry-run"
+  },
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh": ">=0.2.2-rc.1 <0.2.3-0",
+    "dsh-better-sidebar": ">=0.28.2"
+  },
+  "peerDependenciesMeta": {
+    "dsh-better-sidebar": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "~4.1.0",
+    "@deepseek-ai/dsh-agent": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-llm": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-scope": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-session": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-system-prompt": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-tools": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-user-approval": "0.2.2-rc.1"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "slurm",
+    "hpc",
+    "queue",
+    "sbatch"
+  ],
+  "dsh": {
+    "engines": {
+      "dsh": ">=0.2.2-rc.1 <0.2.3-0"
+    },
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true
+    }
+  },
+  "dependencies": {
+    "@deepseek-ai/schemastery": "^3.18.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zghehejun233/dsh-slurm.git"
+  },
+  "homepage": "https://github.com/zghehejun233/dsh-slurm#readme",
+  "bugs": {
+    "url": "https://github.com/zghehejun233/dsh-slurm/issues"
+  }
+}

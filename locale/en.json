@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Slurm queue",
+    "description": "Submit jobs, inspect the cluster, and continue the chat when a job finishes."
+  }
+}

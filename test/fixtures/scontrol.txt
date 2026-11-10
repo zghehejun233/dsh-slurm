@@ -1,0 +1,2 @@
+JobId=197 JobName=p1_evalB JobState=RUNNING Reason=None Dependency=(null) RunTime=00:00:17 TimeLimit=UNLIMITED WorkDir=/home/gsr/irvis_p0/code StdOut=/home/gsr/irvis_p0/logs/p1_evalB_197.log StdErr=/home/gsr/irvis_p0/logs/p1_evalB_197.err NodeList=112-2x5090 Partition=gpu ExitCode=0:0
+slurm_load_jobs error: Invalid job id specified
